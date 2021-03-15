@@ -38,3 +38,34 @@ push 本地分支到远程分支：git push origin [local-branch] : [remote-bran
 版本库：git commit 后暂存区的文件存储的位置，每个分支都有一个版本库，谁执行了 commit，那么 commit 的文件只能被该分支看到，即没执行 commit 之前，所有分支都能看到一个 b.txt，分支A 执行了 commit 之后，其他分支都看不到这个 b.txt 了，只有分支A 看得到
 
 ```
+
+
+
+
+
+## Push（推送）失败，出现版本冲突
+
+[解决 git 冲突](https://blog.csdn.net/programerxiaoer/article/details/78585301)
+
+[git 冲突产生的原因](https://blog.csdn.net/weixin_41287260/article/details/89742151)
+
+问题：
+
+Push 失败，提示 `non-fast-forward`
+
+该问题就是，远程仓库的代码被修改过了，而你又没有拉取进行更新，然后你又自己修改了远程仓库被修改过的代码，然后要提交到远程仓库，git 发现你此时修改的代码不是基于最新的代码的，所以会拒绝推送，需要自己拉取代码，解决冲突后才能推送
+
+*![image.png](https://pic.leetcode-cn.com/1615786616-DktDbE-image.png)*
+
+解决：
+
+```shell
+// 1. 获取远程分支的修改
+git fetch origin feature/milkouyang_862546847
+// 2. 合并远程分支
+git merge origin feature/milkouyang_862546847
+// 3. 更新本地分支
+git pull origin feature/milkouyang_862546847
+```
+
+此后会提示冲突的内容，手动解决即可
