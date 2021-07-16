@@ -4,7 +4,7 @@
 在本地初始化一个 git 仓库：
 	git init
 当前目录的本地仓库 关联 指定的远程仓库，并起别名：
-	git remote add origin [远程仓库 git 地址] // origin 是给远程仓库的别名，我们操作 origin 就是在操作这个远程仓库的本地仓库
+	git remote add [远程仓库别名] [远程仓库 git 地址]
 
 将本地代码提交到暂存区：
 	1、git add [文件名]：提交某个添加/修改的文件
@@ -29,13 +29,17 @@
 	git commit --amend	//执行完命令后会进入 vim，此时原来的注释在第一行，可以直接进行修改，修改完后执行 wq 保存退出
 	
 撤销 commit,回到 add 状态
-	git reset --soft HEAD^
+	git reset --soft HEAD~1
 撤销 commit 和 add 状态，回到未 add 的状态
 	1、git reset --mixed HEAD~1
 	2、git reset HEAD^
 撤销已经 commit 的 commit，并且删除修改的代码，回到上一个 commit 版本的状态
 	git reset --hard HEAD^
 //HEAD^ 等同于 HEAD~1 ,表示上一个版本
+
+
+查看本地 git 仓库关联的是哪个远程仓库地址：
+	git remote -v
 ```
 
 
