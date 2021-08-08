@@ -77,11 +77,11 @@ Push 失败，提示 `non-fast-forward`
 
 ```shell
 // 1. 获取远程分支的修改
-git fetch origin feature/milkouyang_862546847
+git fetch origin master
 // 2. 合并远程分支
-git merge origin feature/milkouyang_862546847
+git merge origin master
 // 3. 更新本地分支
-git pull origin feature/milkouyang_862546847
+git pull origin master
 ```
 
 此后会提示冲突的内容，手动解决即可
